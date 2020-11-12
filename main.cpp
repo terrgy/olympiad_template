@@ -13,7 +13,7 @@
 
 #include <iostream>
 #include <cmath>
-#include <time.h>
+#include <ctime>
 
 #define ll long long
 #define ld long double
