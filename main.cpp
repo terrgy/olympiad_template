@@ -11,25 +11,11 @@
 #pragma GCC optimize ("O3")*/
 
 
-#include <vector>
-#include <string>
-#include <set>
-#include <map>
-#include <queue>
-#include <stack>
-#include <cmath>
 #include <iostream>
-#include <algorithm>
-#include <cstdlib>
-#include <iomanip>
-#include <numeric>
-#include <cstdint>
-#include <ctime>
-#include <unordered_map>
-#include <cstdio>
+#include <cmath>
 
-#define int long long
-#define double long double
+#define ll long long
+#define ld long double
 #define accuracy(a) fixed << setprecision(a)
 
 const int INF = (int)1e9;
