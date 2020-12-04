@@ -20,6 +20,7 @@
 #define accuracy(a) fixed << setprecision(a)
 
 const int INF = (int)1e9;
+const ll LINF = (ll)1e18;
 const double EPS = 0.000000000000001;
 const double PI = acos(-1.0);
 const int MOD = 1e9 + 7;
@@ -57,7 +58,9 @@ void sleep(int milliseconds)
 
 signed main()
 {
+#ifndef LOCAL
     fast_io();
+#endif
 
 
 
