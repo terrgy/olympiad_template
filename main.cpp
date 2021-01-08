@@ -61,8 +61,15 @@ signed main()
 #ifndef LOCAL
     fast_io();
 #endif
+#ifdef LOCAL
+    clock_t start = clock();
+#endif
 
 
+
+#ifdef LOCAL
+    cerr << "TIME = " << (clock() - start) / ((double)CLOCKS_PER_SEC / 1000) << '\n';
+#endif
 
     return 0;
 }
