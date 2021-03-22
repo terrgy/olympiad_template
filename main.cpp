@@ -56,16 +56,23 @@ void sleep(int milliseconds)
     for (clock_t end = clock(); diffclock(start, end) < milliseconds; end = clock()) {}
 }
 
+
+void solve()
+{
+
+}
+
 signed main()
 {
 #ifndef LOCAL
     fast_io();
-#endif
-#ifdef LOCAL
+#else
+    file_in("input.txt");
+    file_out("output.txt");
     clock_t start = clock();
 #endif
 
-
+    solve();
 
 #ifdef LOCAL
     cerr << "TIME = " << (clock() - start) / ((double)CLOCKS_PER_SEC / 1000) << '\n';
