@@ -10,6 +10,9 @@
 #pragma GCC optimize("unroll-loops")
 #pragma GCC optimize ("O3")*/
 
+#ifdef LOCAL
+#define _GLIBCXX_DEBUG
+#endif
 
 #include <iostream>
 #include <cmath>
