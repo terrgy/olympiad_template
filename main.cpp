@@ -17,6 +17,7 @@
 #include <iostream>
 #include <cmath>
 #include <ctime>
+#include <vector>
 
 #define ll long long
 #define ld long double
@@ -74,8 +75,15 @@ signed main()
     file_out("output.txt");
     clock_t start = clock();
 #endif
+#ifdef LOCAL
+    clock_t start = clock();
+#endif
 
     solve();
+
+#ifdef LOCAL
+    cerr << "TIME = " << (clock() - start) / ((double)CLOCKS_PER_SEC / 1000) << '\n';
+#endif
 
 #ifdef LOCAL
     cerr << "TIME = " << (clock() - start) / ((double)CLOCKS_PER_SEC / 1000) << '\n';
