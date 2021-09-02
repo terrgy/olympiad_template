@@ -17,6 +17,7 @@
 #include <iostream>
 #include <cmath>
 #include <ctime>
+#include <vector>
 
 #define ll long long
 #define ld long double
