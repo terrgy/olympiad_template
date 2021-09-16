@@ -18,6 +18,7 @@
 #include <cmath>
 #include <ctime>
 #include <vector>
+#include <iomanip>
 
 #define len(a) (int)a.size()
 #define all(a) a.begin(), a.end()
@@ -54,7 +55,7 @@ void file_out(const string& filename)
 
 double diff_clock(clock_t clock1, clock_t clock2)
 {
-    return (double)(clock2 - clock1) / CLOCKS_PER_SEC / 1000;
+    return (double)(clock2 - clock1) * 1000 / CLOCKS_PER_SEC;
 }
 
 void sleep(int milliseconds)
@@ -82,7 +83,7 @@ signed main()
     solve();
 
 #ifdef LOCAL
-    cerr << "TIME = " << diff_clock(start, clock()) << '\n';
+    cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << '\n';
 #endif
     return 0;
 }
