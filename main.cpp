@@ -19,6 +19,10 @@
 #include <ctime>
 #include <vector>
 
+#define len(a) (int)a.size()
+#define all(a) a.begin(), a.end()
+#define forn(n, i) for (int i = 0; i < n; ++i)
+#define fornrev(n, i) for (int i = n - 1; i > -1; --i)
 #define ll long long
 #define ld long double
 #define accuracy(a) fixed << setprecision(a)
