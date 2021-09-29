@@ -34,9 +34,10 @@
 #define all(a) a.begin(), a.end()
 #define forn(n, i) for (int i = 0; i < n; ++i)
 #define fornrev(n, i) for (int i = n - 1; i > -1; --i)
-#define ll long long
-#define ld long double
 #define accuracy(a) fixed << setprecision(a)
+
+typedef long long ll;
+typedef long double ld;
 
 const int INF = (int)2e9;
 const ll LINF = (ll)1e18;
