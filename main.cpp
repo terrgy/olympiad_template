@@ -261,7 +261,19 @@ inline string input_filename()
     return "numbers";
 }
 
+void run_test();
+
 void run()
+{
+    int t;
+    cin >> t;
+    for (; t > 0; --t)
+    {
+        run_test();
+    }
+}
+
+void run_test()
 {
 
 }
