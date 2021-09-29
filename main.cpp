@@ -29,7 +29,7 @@
 #define ld long double
 #define accuracy(a) fixed << setprecision(a)
 
-const int INF = (int)1e9;
+const int INF = (int)2e9;
 const ll LINF = (ll)1e18;
 const double EPS = 0.000000000000001;
 const double PI = acos(-1.0);
