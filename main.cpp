@@ -240,10 +240,7 @@ void debug_out(Head head, Tail... tail)
 #define debug(...)
 #endif
 
-void solve()
-{
-
-}
+void run();
 
 signed main()
 {
@@ -255,10 +252,15 @@ signed main()
     clock_t start = clock();
 #endif
 
-    solve();
+    run();
 
 #ifdef LOCAL
     cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << '\n';
 #endif
     return 0;
+}
+
+void run()
+{
+
 }
