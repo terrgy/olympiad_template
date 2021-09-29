@@ -240,16 +240,23 @@ void debug_out(Head head, Tail... tail)
 #define debug(...)
 #endif
 
+inline string input_filename();
+
 void run();
 
 signed main()
 {
-#ifndef LOCAL
-    fast_io();
-#else
+#ifdef LOCAL
     file_in("input.txt");
     file_out("output.txt");
     clock_t start = clock();
+#else
+    fast_io();
+    if (!input_filename().empty())
+    {
+        file_in(input_filename() + ".in");
+        file_out(input_filename() + ".out");
+    }
 #endif
 
     run();
@@ -258,6 +265,11 @@ signed main()
     cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << '\n';
 #endif
     return 0;
+}
+
+inline string input_filename()
+{
+    return "numbers";
 }
 
 void run()
