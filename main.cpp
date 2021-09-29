@@ -1,15 +1,3 @@
-/*#pragma GCC optimize("Ofast,no-stack-protector")
-#pragma GCC optimize("fast-math")
-#pragma GCC optimize("vpt")
-#pragma GCC optimize("rename-registers")
-#pragma GCC optimize("move-loop-invariants")
-#pragma GCC optimize("function-sections")
-#pragma GCC optimize("branch-target-load-optimize")
-#pragma GCC optimize("branch-target-load-optimize2")
-#pragma GCC optimize("btr-bb-exclusive")
-#pragma GCC optimize("unroll-loops")
-#pragma GCC optimize ("O3")*/
-
 #ifdef LOCAL
 #define _GLIBCXX_DEBUG
 #else
