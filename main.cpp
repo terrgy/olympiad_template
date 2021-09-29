@@ -19,6 +19,7 @@
 #include <ctime>
 #include <vector>
 #include <iomanip>
+#include <random>
 
 #define len(a) (int)a.size()
 #define all(a) a.begin(), a.end()
@@ -64,6 +65,19 @@ void sleep(int milliseconds)
     for (clock_t end = clock(); diff_clock(start, end) < milliseconds; end = clock()) {}
 }
 
+int randint(int a, int b)
+{
+    static random_device rd;
+    static mt19937 rnd(rd());
+    return (int)(rnd() % (b - a + 1) + a);
+}
+
+ll randint64(ll a, ll b)
+{
+    static random_device rd;
+    static mt19937_64 rnd(rd());
+    return (ll)(rnd() % (b - a + 1) + a);
+}
 
 void solve()
 {
