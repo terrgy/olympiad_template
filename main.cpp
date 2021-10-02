@@ -259,17 +259,17 @@ signed main()
     run();
 
 #ifdef LOCAL
-    cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << '\n';
+    cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << endl;
 #endif
     return 0;
 }
 
 inline string input_filename()
 {
-    return "numbers";
+    return "";
 }
 
 void run()
 {
-    debug(make_tuple(1, 5, make_pair(6, 24)));
+
 }
