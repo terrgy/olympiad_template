@@ -205,6 +205,14 @@ struct ToStringConverter
     };
 
     template<typename... Args>
+    static string convert(const pair<Args...>& p)
+    {
+        ostringstream stream;
+        stream << '(' << convert(p.first) << ", " << convert(p.second) << ')';
+        return stream.str();
+    }
+
+    template<typename... Args>
     static string convert(const tuple<Args...>& t)
     {
         return TupleConverter< tuple_size_v< tuple<Args...> > - 1, Args...>::tuple_convert(t);
@@ -263,5 +271,5 @@ inline string input_filename()
 
 void run()
 {
-
+    debug(make_tuple(1, 5, make_pair(6, 24)));
 }
