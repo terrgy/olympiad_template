@@ -205,6 +205,14 @@ struct ToStringConverter
     };
 
     template<typename... Args>
+    static string convert(const pair<Args...>& p)
+    {
+        ostringstream stream;
+        stream << '(' << convert(p.first) << ", " << convert(p.second) << ')';
+        return stream.str();
+    }
+
+    template<typename... Args>
     static string convert(const tuple<Args...>& t)
     {
         return TupleConverter< tuple_size_v< tuple<Args...> > - 1, Args...>::tuple_convert(t);
@@ -251,14 +259,14 @@ signed main()
     run();
 
 #ifdef LOCAL
-    cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << '\n';
+    cerr << "TIME = " << accuracy(3) << diff_clock(start, clock()) << endl;
 #endif
     return 0;
 }
 
 inline string input_filename()
 {
-    return "numbers";
+    return "";
 }
 
 void run_test();
