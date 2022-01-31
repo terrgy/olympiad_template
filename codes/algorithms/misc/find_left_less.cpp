@@ -1,4 +1,4 @@
-void find_histogram_max_area(vector<int>& arr, vector<int>& pos)
+void find_left_less(vector<int>& arr, vector<int>& pos)
 {
     vector< pair<int, int> > st;
     pos.resize(len(arr));
