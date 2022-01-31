@@ -89,6 +89,12 @@ ll randint64(ll a, ll b)
     return (ll)(rnd() % (b - a + 1) + a);
 }
 
+template<typename T>
+void uniquize(vector<T>& vec)
+{
+    vec.resize(distance(vec.begin(), unique(vec.begin(), vec.end())));
+}
+
 struct ToStringConverter
 {
     template<typename T>
