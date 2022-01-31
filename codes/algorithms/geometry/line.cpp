@@ -20,3 +20,8 @@ Point intersection(Line a, Line b)
     double y = (a.A * b.C - a.C * b.A) / (a.B * b.A - a.A * b.B);
     return {x, y};
 }
+
+ld distance(Line line, Point point)
+{
+    return (ld)fabs(line.A * point.x + line.b * point.y + line.c) / sqrt((ld)line.A * line.A + (ld)line.B * line.B);
+}
