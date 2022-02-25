@@ -1,6 +1,5 @@
 
 Google_tests/
-CMakeLists.txt
 build/
 .vscode/
 

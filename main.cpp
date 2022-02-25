@@ -1,6 +1,4 @@
-#ifdef LOCAL
-#define _GLIBCXX_DEBUG
-#else
+#ifndef LOCAL
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize ("O3")
 #endif
