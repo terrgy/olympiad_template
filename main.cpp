@@ -134,5 +134,5 @@ inline string input_filename()
 
 void run()
 {
-    debug(5);
+
 }
