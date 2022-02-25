@@ -1,6 +1,4 @@
-#ifdef LOCAL
-#define _GLIBCXX_DEBUG
-#else
+#ifndef LOCAL
 #pragma GCC optimize("Ofast")
 #pragma GCC optimize ("O3")
 #endif
@@ -87,6 +85,12 @@ ll randint64(ll a, ll b)
     static random_device rd;
     static mt19937_64 rnd(rd());
     return (ll)(rnd() % (b - a + 1) + a);
+}
+
+template<typename T>
+void uniquize(vector<T>& vec)
+{
+    vec.resize(distance(vec.begin(), unique(vec.begin(), vec.end())));
 }
 
 struct ToStringConverter

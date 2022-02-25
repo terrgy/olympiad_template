@@ -1,6 +1,7 @@
 
 Google_tests/
-CMakeLists.txt
+build/
+.vscode/
 
 # Created by https://www.toptal.com/developers/gitignore/api/c++,linux,clion+all
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++,linux,clion+all
