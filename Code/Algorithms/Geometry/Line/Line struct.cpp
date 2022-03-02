@@ -1,27 +1,78 @@
 struct Line
 {
-    double A;
-    double B;
-    double C;
+    double a;
+    double b;
+    double c;
 
     Line() : Line(0, 0, 0) {}
-    Line(double A, double B, double C) : A(A), B(B), C(C) {}
-    Line(Point point, Vector perp_vector) : A(perp_vector.x), B(perp_vector.y),
-                                            C(-perp_vector.x * point.x - perp_vector.y * point.y) {}
+    Line(double a, double b, double c) : a(a), b(b), c(c) {}
+    Line(const Point& point, Vector perp_vec) : a(perp_vec.x), b(perp_vec.y),
+                                            c(-perp_vec.x * point.x - perp_vec.y * point.y) {}
+    Line(const Point& point, const Line& parallel)
+    {
+        init_by_point_and_direction_vec(point, Vector(parallel.b, -parallel.a));
+    }
+
+    void init_by_point_and_direction_vec(const Point& point, const Vector& vec)
+    {
+        a = vec.y;
+        b = -vec.x;
+        c = -a * point.x - b * point.y;
+    }
+
+    bool is_belong(const Point& point)
+    {
+        return are_equal(a * point.x + b * point.y + c, 0);
+    }
 };
 
-Point intersection(Line a, Line b)
+istream& operator>>(istream& in, Line& line)
 {
-    if (are_equal(a.A * b.B, a.B * b.A))
+    in >> line.a >> line.b >> line.c;
+    return in;
+}
+
+Point intersection(const Line& line1, const Line& line2)
+{
+    if (are_equal(line1.a * line2.b, line1.b * line2.a))
     {
         throw -1;
     }
-    double x = (b.C * a.B - a.C * b.B) / (a.A * b.B - b.A * a.B);
-    double y = (a.A * b.C - a.C * b.A) / (a.B * b.A - a.A * b.B);
+    double x = (line2.c * line1.b - line1.c * line2.b) / (line1.a * line2.b - line2.a * line1.b);
+    double y = (line1.a * line2.c - line1.c * line2.a) / (line1.b * line2.a - line1.a * line2.b);
     return {x, y};
 }
 
-ld distance(Line line, Point point)
+double distance(const Line& line, const Point& point)
 {
-    return (ld)fabs(line.A * point.x + line.b * point.y + line.c) / sqrt((ld)line.A * line.A + (ld)line.B * line.B);
+    return fabs(line.a * point.x + line.b * point.y + line.c) / sqrt(line.a * line.a + line.b * line.b);
+}
+
+bool is_line_between(const Line& first, const Line& second, const Line& target)
+{
+    if (are_equal(target.b, 0))
+    {
+        return is_line_between(Line(first.b, first.a, first.c), Line(second.b, second.a, second.c), Line(target.b, target.a, target.c));
+    }
+    auto cmp = [](double c1, double b1, double c2, double b2)
+    {
+        bool less_sign = true;
+        if (b1 < 0)
+        {
+            less_sign ^= 1;
+        }
+        if (b2 < 0)
+        {
+            less_sign ^= 1;
+        }
+        double res = c1 * b2 - c2 * b1;
+        return less_sign ? res <= 0 : res >= 0;
+    };
+
+    auto is_between_half = [&](const Line& f, const Line& s, const Line& t)
+    {
+        return cmp(f.c, f.b, t.c, t.b) && cmp(t.c, t.b, s.c, s.b);
+    };
+
+    return is_between_half(first, second, target) || is_between_half(second, first, target);
 }

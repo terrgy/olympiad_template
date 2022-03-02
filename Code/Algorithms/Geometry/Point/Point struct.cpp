@@ -6,9 +6,14 @@ struct Point
     Point() : Point(0, 0) {}
     Point(double x, double y) : x(x), y(y) {}
 
-    bool are_equal(Point other) const
+    bool operator<(const Point& other) const
     {
-        return ::are_equal(x, other.x) && ::are_equal(y, other.y);
+        return (x < other.x) || (are_equal(x, other.x) && (y < other.y));
+    }
+
+    bool operator==(const Point& other) const
+    {
+        return are_equal(x, other.x) && are_equal(y, other.y);
     }
 };
 
@@ -22,16 +27,6 @@ ostream& operator<<(ostream& out, Point& point)
 {
     out << point.x << ' ' << point.y;
     return out;
-}
-
-bool operator<(const Point& a, const Point& b)
-{
-    return (a.y < b.y) || (are_equal(a.y, b.y) && (a.x > b.x));
-}
-
-bool operator==(const Point& a, const Point& b)
-{
-    return a.are_equal(b);
 }
 
 ld sqrDist(Point a, Point b)
